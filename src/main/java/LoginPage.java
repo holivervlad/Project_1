@@ -1,14 +1,12 @@
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage {
 
-    private SelenideElement userNameField = $(By.xpath("//input[@id = 'username']"));
-    private SelenideElement passwordField = $(By.xpath("//input[@id = 'password']"));
-    private SelenideElement loginButton = $(By.xpath("//input[@id = 'Login']"));
-
+    private SelenideElement userNameField = $x("//input[@id = 'username']");
+    private SelenideElement passwordField = $x("//input[@id = 'password']");
+    private SelenideElement loginButton = $x("//input[@id = 'Login']");
 
     public LoginPage setUserName(String userName) {
 

@@ -9,6 +9,6 @@ public class HomePage {
     private SelenideElement homeTab = $x("//span[text() = 'Home']");
 
     public boolean isHomeTabShown() {
-        return homeTab.shouldBe(Condition.visible, Duration.ofSeconds(10)).exists();
+        return homeTab.shouldBe(Condition.visible, Duration.ofSeconds(20)).exists();
     }
 }

@@ -7,7 +7,7 @@ public class LoginTest extends AbstractWebTest {
 
     @Test
     public void userCanSearchTest() {
-        homePage = new LoginPage().loginAsUser("salesrep_phx@oceuiauto.com.devlopment", "crm1OCE2");
+        homePage = new LoginPage().loginAsUser("salesrep_phx@oceuiauto.com.devlopment", "crm1OCE3");
         Assert.assertTrue(homePage.isHomeTabShown());
     }
 

@@ -6,12 +6,28 @@ import java.time.Duration;
 
 public class WebElementUtils {
 
+    private SelenideElement waitUntilVisible(SelenideElement selenideElement, int waitsTime) {
+        return selenideElement.shouldBe(Condition.visible, Duration.ofSeconds(waitsTime));
+    }
+
+    private SelenideElement waitUntilEnabled(SelenideElement selenideElement, int waitsTime) {
+        return selenideElement.shouldBe(Condition.enabled, Duration.ofSeconds(waitsTime));
+    }
+
     private SelenideElement waitUntilVisible(SelenideElement selenideElement) {
         return selenideElement.shouldBe(Condition.visible);
     }
 
     private SelenideElement waitUntilEnabled(SelenideElement selenideElement) {
         return selenideElement.shouldBe(Condition.enabled);
+    }
+
+    public boolean isElementVisible(SelenideElement selenideElement) {
+        return selenideElement.shouldBe(Condition.visible, Duration.ofSeconds(10)).exists();
+    }
+
+    public boolean isElementVisible(SelenideElement selenideElement, int waitsTime) {
+        return selenideElement.shouldBe(Condition.visible, Duration.ofSeconds(waitsTime)).exists();
     }
 
     public void waitUntilVisibleAndClick(SelenideElement selenideElement) {

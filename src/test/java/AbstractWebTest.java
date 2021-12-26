@@ -14,7 +14,8 @@ import org.openqa.selenium.TakesScreenshot;
 import static com.codeborne.selenide.Selenide.open;
 
 public abstract class AbstractWebTest {
-    private static final String ENVIRONMENT = Configuration.baseUrl = "https://test.salesforce.com/";
+
+    private static final String ENVIRONMENT = "https://test.salesforce.com/";
 
     static {
 //        Selenide.webdriver().driver().getWebDriver().manage().window().maximize();

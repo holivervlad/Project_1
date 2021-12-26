@@ -27,7 +27,7 @@ public class LoginPage {
         loginButton.click();
     }
 
-    @Step
+    @Step("Log in with '{0}' user namee and '{1}' password")
     public HomePage loginAsUser(String userName, String password) {
         setUserName(userName);
         setPassword(password);

@@ -23,11 +23,11 @@ public class WebElementUtils {
     }
 
     public boolean isElementVisible(SelenideElement selenideElement) {
-        return selenideElement.shouldBe(Condition.visible, Duration.ofSeconds(10)).exists();
+        return waitUntilVisible(selenideElement).exists();
     }
 
     public boolean isElementVisible(SelenideElement selenideElement, int waitsTime) {
-        return selenideElement.shouldBe(Condition.visible, Duration.ofSeconds(waitsTime)).exists();
+        return waitUntilVisible(selenideElement, waitsTime).exists();
     }
 
     public void waitUntilVisibleAndClick(SelenideElement selenideElement) {

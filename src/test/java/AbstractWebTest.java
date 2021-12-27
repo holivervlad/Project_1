@@ -3,6 +3,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.After;
@@ -17,21 +18,17 @@ public abstract class AbstractWebTest {
 
     private static final String ENVIRONMENT = "https://test.salesforce.com/";
 
-    static {
-//        Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
-//        Configuration.pageLoadStrategy = "eager";
+    public void setUp() {
+//        WebDriverManager.firefoxdriver().setup();
 //        Configuration.browser = "firefox";
-//        Configuration.reportsUrl = "some.url";
-//        Configuration.fastSetValue = true;
-//        Configuration.assertionMode = AssertionMode.SOFT;
-//        Configuration.pollingInterval = 200; //интвервал в через который идет поиск элементов на странице
-//        Configuration.savePageSource = false; //page sourse теперь будет отсутствовать на странице
+//        Configuration.driverManagerEnabled = true;
 
 //        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
     }
 
     @Before
     public void openEnvironment() {
+//        setUp();
         open(ENVIRONMENT);
     }
 

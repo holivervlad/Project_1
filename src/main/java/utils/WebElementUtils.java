@@ -48,7 +48,8 @@ public class WebElementUtils {
         Selenide.actions().dragAndDrop(fromElement, toElement);
     }
 
-    public void clearAndType(SelenideElement selenideElement, String value) {
+    public void clearAndSetValue(SelenideElement selenideElement, String value) {
+        waitUntilVisible(selenideElement);
         selenideElement.clear();
         selenideElement.setValue(value);
     }
@@ -57,18 +58,13 @@ public class WebElementUtils {
         return waitUntilVisible(selenideElement).getText();
     }
 
-    //    public void scrollDown() {
-//        Selenide.executeAsyncJavaScript("");
-//        Selenide.executeJavaScript("");
-//    }
-//
     public static void clearBrowserCookieAndStorage() {
         try {
             Selenide.clearBrowserCookies();
             Selenide.clearBrowserLocalStorage();
 //            Selenide.executeJavaScript("window.sessionStorage.clear()");
         } catch (Exception ex) {
-            System.out.println(String.format("Error message - '%s'", ex.getMessage()));
+            ex.printStackTrace();
         }
     }
 }

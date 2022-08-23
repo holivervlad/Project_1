@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     private SelenideElement userNameField = $x("//input[@id = 'username']");
     private SelenideElement passwordField = $x("//input[@id = 'password']");
@@ -13,20 +13,21 @@ public class LoginPage {
 
     @Step
     public LoginPage setUserName(String userName) {
-        userNameField.click();
-        userNameField.setValue(userName);
+        webElementUtils.waitUntilVisibleAndClick(userNameField);
+        webElementUtils.clearAndSetValue(userNameField, userName);
         return this;
     }
 
     @Step
     public LoginPage setPassword(String password) {
-        passwordField.setValue(password);
+        webElementUtils.waitUntilVisibleAndClick(passwordField);
+        webElementUtils.clearAndSetValue(passwordField, password);
         return this;
     }
 
     @Step
     public void clickLoginButton() {
-        loginButton.click();
+        webElementUtils.waitUntilVisibleAndClick(loginButton);
     }
 
     @Step("Log in with '{0}' user name and '{1}' password")

@@ -1,3 +1,5 @@
+package pages;
+
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -27,7 +29,7 @@ public class LoginPage {
         loginButton.click();
     }
 
-    @Step("Log in with '{0}' user namee and '{1}' password")
+    @Step("Log in with '{0}' user name and '{1}' password")
     public HomePage loginAsUser(String userName, String password) {
         setUserName(userName);
         setPassword(password);

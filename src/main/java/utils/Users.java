@@ -2,16 +2,12 @@ package utils;
 
 import io.qameta.allure.Step;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class Users {
-
-//    @Step
-//    public String getEnvironment(){
-//        return getPropertyValue("env_url");
-//    }
 
     @Step
     public String getSalesRepUserName() {
@@ -39,16 +35,23 @@ public class Users {
     }
 
     public String getPropertyValue(String propertyName) {
-        String propertyValue = "";
-        Properties properties = new Properties();
+        Properties prop = new Properties();
+        InputStream input = null;
         try {
-            InputStream inputStream = this.getClass().getResourceAsStream("creds_for_development.properties");
-            properties.load(inputStream);
-            propertyValue = properties.getProperty(propertyName);
+            input = new FileInputStream("/Users/vladyslavholiver/Documents/Projects_for_self_learning/Project_1/src/main/resources/creds.properties");
+            prop.load(input);
+            return prop.getProperty(propertyName);
         } catch (IOException ex) {
-            System.out.println(ex);
+            throw new RuntimeException(ex.getMessage());
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return propertyValue;
     }
 
 }

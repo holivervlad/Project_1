@@ -1,6 +1,11 @@
+package web;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pages.HomePage;
+import pages.LoginPage;
+import utils.Users;
 
 public class LoginTest extends AbstractWebTest {
     private HomePage homePage;

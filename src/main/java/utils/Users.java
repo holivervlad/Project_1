@@ -1,3 +1,5 @@
+package utils;
+
 import io.qameta.allure.Step;
 
 import java.io.IOException;

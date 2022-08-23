@@ -1,16 +1,9 @@
-import com.codeborne.selenide.AssertionMode;
-import com.codeborne.selenide.Configuration;
+package web;
+
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Attachment;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.jupiter.api.AfterEach;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import utils.WebElementUtils;
 
 import static com.codeborne.selenide.Selenide.open;
 

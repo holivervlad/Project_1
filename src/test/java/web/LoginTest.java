@@ -1,8 +1,8 @@
 package web;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.HomePage;
 
 public class LoginTest extends AbstractWebTest {

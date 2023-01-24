@@ -1,10 +1,7 @@
 package web;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.testng.annotations.AfterClass;
 import pages.LoginPage;
 import utils.Users;
 import utils.WebElementUtils;

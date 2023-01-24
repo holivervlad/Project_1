@@ -17,11 +17,11 @@ public class HomePage extends BasePage {
 
     @Step
     public boolean isHomeTabShown() {
-        return webElementUtils.isElementVisible(homeTab, 10);
+        return webElementUtils.isElementVisible(homeTab, 30);
     }
 
     @Step
     public boolean isAccountTabShown() {
-        return webElementUtils.isElementVisible(accountTab, 10);
+        return webElementUtils.isElementVisible(accountTab, 30);
     }
 }

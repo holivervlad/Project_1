@@ -42,7 +42,7 @@ public abstract class AbstractWebTest {
                 Selenide.open(ENVIRONMENT);
                 break;
             }
-            catch(Exception e)
+            catch(WebDriverException e)
             {
                 if( retryCount > 5)
                 {

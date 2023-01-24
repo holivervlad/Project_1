@@ -1,12 +1,12 @@
 package web;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import pages.LoginPage;
 import utils.Users;
 import utils.WebElementUtils;
-
-import static com.codeborne.selenide.Selenide.open;
 
 public abstract class AbstractWebTest {
 
@@ -23,7 +23,13 @@ public abstract class AbstractWebTest {
     }
 
     public static LoginPage openEnvironment() {
-        open(ENVIRONMENT);
+        WebDriverManager.chromedriver().setup();
+        Configuration.browser = "chrome";
+        Configuration.driverManagerEnabled = true;
+        Configuration.browserSize = "1920x1080";
+        Configuration.headless = false;
+        Configuration.holdBrowserOpen = false;
+        Selenide.open(ENVIRONMENT);
         return new LoginPage();
     }
 
@@ -36,8 +42,9 @@ public abstract class AbstractWebTest {
 
     @AfterClass
     public static void closeEnvironment() {
-        Selenide.closeWebDriver();
         WebElementUtils.clearBrowserCookieAndStorage();
+        Selenide.closeWindow();
+        Selenide.closeWebDriver();
     }
 
 //    @Attachment

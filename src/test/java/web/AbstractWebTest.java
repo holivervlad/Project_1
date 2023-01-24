@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
+import org.openqa.selenium.WebDriverException;
 import pages.LoginPage;
 import utils.Users;
 import utils.WebElementUtils;
@@ -29,7 +30,37 @@ public abstract class AbstractWebTest {
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
         Configuration.holdBrowserOpen = false;
-        Selenide.open(ENVIRONMENT);
+        Configuration.browserVersion = "79.0";
+//        Selenide.open(ENVIRONMENT);
+
+///////////////////////////////
+        int retryCount = 0;
+        while(true)
+        {
+            try
+            {
+                Selenide.open(ENVIRONMENT);
+                break;
+            }
+            catch(Exception e)
+            {
+                if( retryCount > 5)
+                {
+                    throw new RuntimeException("Too many retries...", e);
+                }
+
+                retryCount++;
+                try
+                {
+                    Thread.sleep(2_000);
+                }
+                catch (InterruptedException interruptedException)
+                {
+                    interruptedException.printStackTrace();
+                }
+                continue;
+            }
+        }
         return new LoginPage();
     }
 
